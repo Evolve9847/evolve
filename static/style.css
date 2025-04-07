@@ -8,10 +8,11 @@
 }
 
 body {
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    padding: 20px;
     background: url('bg2.gif') no-repeat center center fixed;
     background-size: cover;
     color: white;
@@ -24,14 +25,16 @@ body {
     padding: 30px;
     border-radius: 15px;
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
-    width: 350px;
+    max-width: 100%;
+    width: 100%;
+    max-width: 400px;
     animation: fadeIn 1.5s ease-in-out;
-    color: white;
 }
 
 .profile-img {
-    width: 120px;
-    height: 120px;
+    width: 100%;
+    max-width: 120px;
+    height: auto;
     border-radius: 50%;
     border: 3px solid white;
     transition: transform 0.3s ease-in-out;
@@ -45,21 +48,25 @@ h1 {
     font-size: 24px;
     margin: 10px 0;
     font-weight: 600;
-    color: white;
 }
 
 p {
     font-size: 16px;
     margin-bottom: 15px;
     opacity: 0.85;
-    color: white;
+}
+
+.links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .links a {
     display: inline-block;
     padding: 12px 20px;
-    margin: 10px;
-    font-size: 18px;
+    margin: 8px;
+    font-size: 16px;
     font-weight: 600;
     border-radius: 25px;
     background: rgba(255, 255, 255, 0.15);
@@ -67,6 +74,7 @@ p {
     text-decoration: none;
     color: white;
     transition: all 0.3s ease-in-out;
+    white-space: nowrap;
 }
 
 .links a:hover {
@@ -76,21 +84,24 @@ p {
 
 @media (max-width: 500px) {
     .container {
-        width: 90%;
+        width: 100%;
         padding: 20px;
     }
+
     .profile-img {
-        width: 100px;
-        height: 100px;
+        max-width: 100px;
     }
+
     h1 {
         font-size: 20px;
     }
+
     p {
         font-size: 14px;
     }
+
     .links a {
-        font-size: 16px;
+        font-size: 14px;
         padding: 8px 15px;
     }
 }
@@ -141,7 +152,6 @@ p {
     padding: 10px;
     overflow-y: auto;
     max-height: 250px;
-    color: white;
 }
 
 .chat-input {

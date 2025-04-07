@@ -1,110 +1,150 @@
-/* General Styling */
-body {
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+* {
     margin: 0;
     padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #000000, #1a1a1a);
-    color: white;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    padding: 20px;
+    background: url('bg2.gif') no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+    text-align: center;
 }
 
 .container {
-    text-align: center;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(15px);
     padding: 30px;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 20px;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(10px);
-    max-width: 95%;
-    width: 400px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+    max-width: 100%;
+    width: 100%;
+    max-width: 400px;
+    animation: fadeIn 1.5s ease-in-out;
 }
 
-/* Profile Image */
 .profile-img {
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
+    width: 100%;
+    max-width: 120px;
+    height: auto;
     border-radius: 50%;
-    margin-bottom: 20px;
-    border: 3px solid #fff;
+    border: 3px solid white;
+    transition: transform 0.3s ease-in-out;
 }
 
-/* Name */
+.profile-img:hover {
+    transform: scale(1.1);
+}
+
 h1 {
-    margin: 0;
-    font-size: 26px;
+    font-size: 24px;
+    margin: 10px 0;
+    font-weight: 600;
 }
 
-/* Title */
 p {
-    margin: 8px 0 20px 0;
     font-size: 16px;
-    color: #ccc;
+    margin-bottom: 15px;
+    opacity: 0.85;
 }
 
-/* Links */
+.links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
 .links a {
     display: inline-block;
-    margin: 5px 10px;
-    padding: 10px 16px;
-    background: #007bff;
-    color: white;
-    border-radius: 8px;
+    padding: 12px 20px;
+    margin: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
     text-decoration: none;
-    font-size: 14px;
-    transition: background 0.3s ease;
+    color: white;
+    transition: all 0.3s ease-in-out;
+    white-space: nowrap;
 }
 
 .links a:hover {
-    background: #0056b3;
+    background: rgba(255, 255, 255, 0.4);
+    transform: scale(1.1);
+}
+
+@media (max-width: 500px) {
+    .container {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .profile-img {
+        max-width: 100px;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    p {
+        font-size: 14px;
+    }
+
+    .links a {
+        font-size: 14px;
+        padding: 8px 15px;
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 /* Chatbot Icon */
 .chatbot-icon {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 60px;
-    height: 60px;
+    bottom: 30px;
+    right: 30px;
+    width: 70px;
+    height: 70px;
     cursor: pointer;
-    z-index: 1000;
-    transition: transform 0.3s ease-in-out;
-}
-
-.chatbot-icon:hover {
-    transform: scale(1.1);
+    z-index: 999;
 }
 
 /* Chat Popup */
 .chat-popup {
     display: none;
     position: fixed;
-    bottom: 90px;
-    right: 20px;
-    width: 100%;
-    max-width: 320px;
-    max-height: 90vh;
-    background: rgba(0, 0, 0, 0.95);
-    border-radius: 15px;
-    box-shadow: 0 0 15px rgba(0,0,0,0.4);
+    bottom: 110px;
+    right: 30px;
+    width: 300px;
+    max-height: 400px;
+    background: rgba(0, 0, 0, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
     overflow: hidden;
     flex-direction: column;
     z-index: 999;
     color: white;
-    backdrop-filter: blur(10px);
-    animation: fadeInUp 0.4s ease;
-    display: flex;
 }
 
 .chat-header {
-    background: #111;
+    background: #222;
+    color: #fff;
     padding: 10px;
     text-align: center;
     font-weight: 600;
-    font-size: 16px;
 }
 
 .chat-messages {
@@ -112,15 +152,13 @@ p {
     padding: 10px;
     overflow-y: auto;
     max-height: 250px;
-    font-size: 14px;
-    line-height: 1.5;
 }
 
 .chat-input {
     display: flex;
     padding: 10px;
-    background: rgba(255, 255, 255, 0.05);
     border-top: 1px solid #444;
+    background-color: rgba(255, 255, 255, 0.05);
 }
 
 .chat-input input {
@@ -128,70 +166,21 @@ p {
     padding: 8px;
     border: none;
     border-radius: 5px;
-    background-color: #222;
+    background-color: #333;
     color: white;
-    font-size: 14px;
 }
 
 .chat-input button {
-    margin-left: 8px;
-    padding: 8px 14px;
+    padding: 8px 12px;
+    margin-left: 5px;
     border: none;
-    border-radius: 5px;
-    background: #007bff;
+    background: #006eff;
     color: white;
+    border-radius: 5px;
     cursor: pointer;
-    font-size: 14px;
-    transition: background 0.3s;
+    transition: 0.3s ease;
 }
 
 .chat-input button:hover {
-    background: #005fd1;
-}
-
-/* Responsive Design */
-@media (max-width: 480px) {
-    .container {
-        width: 90%;
-        padding: 20px;
-    }
-
-    .profile-img {
-        width: 120px;
-        height: 120px;
-    }
-
-    .chat-popup {
-        bottom: 80px;
-        right: 10px;
-        width: 95%;
-        max-width: none;
-    }
-
-    .chatbot-icon {
-        width: 50px;
-        height: 50px;
-        bottom: 15px;
-        right: 15px;
-    }
-
-    .chat-input input,
-    .chat-input button {
-        font-size: 13px;
-    }
-
-    .chat-header {
-        font-size: 15px;
-    }
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    background: #004bcc;
 }

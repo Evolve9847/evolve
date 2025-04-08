@@ -22,5 +22,10 @@ def chat():
     except Exception as e:
         return jsonify({"reply": f"Error: {str(e)}"})
 
+# ✅ Added route to serve sitemap.xml
+@app.route('/sitemap.xml')
+def sitemap():
+    return app.send_static_file('sitemap.xml')
+
 if __name__ == "__main__":
     app.run(debug=True)

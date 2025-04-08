@@ -1,48 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Fayis Ismail</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Fayis Ismail</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- ✅ Google Site Verification -->
-  <meta name="google-site-verification" content="uG79bVZHFA28sFsrulTdHSI8b7I_H47Vb7O1hkqZvls" />
+    <!-- ✅ Google Site Verification -->
+    <meta name="google-site-verification" content="uG79bVZHFA28sFsrulTdHSI8b7I_H47Vb7O1hkqZvls" />
 
-  <!-- ✅ SEO Structured Data for Google Search -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Fayis Ismail",
-    "url": "https://fayisismail.vercel.app",
-    "image": "https://fayisismail.vercel.app/static/profile.jpg",
-    "sameAs": [
-      "https://github.com/Evolve9847",
-      "https://www.linkedin.com/in/fayis-ismail",
-      "https://m.imdb.com/name/nm12955860/?ref_=ext_shr_lnk"
-    ],
-    "jobTitle": "CGI Compositor & AI Enthusiast",
-    "worksFor": {
-      "@type": "Organization",
-      "name": "evolve.ai"
+    <!-- ✅ SEO Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Fayis Ismail",
+      "url": "https://fayisismail.vercel.app",
+      "image": "https://fayisismail.vercel.app/static/profile.jpg",
+      "sameAs": [
+        "https://github.com/Evolve9847",
+        "https://www.linkedin.com/in/fayis-ismail",
+        "https://m.imdb.com/name/nm12955860/?ref_=ext_shr_lnk"
+      ],
+      "jobTitle": "CGI Compositor & AI Enthusiast"
     }
-  }
-  </script>
+    </script>
 
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-  <div class="container">
-    <div class="card">
-      <img src="{{ url_for('static', filename='profile.jpg') }}" alt="Fayis Ismail">
-      <h1>Fayis Ismail</h1>
-      <p>Creator of evolve.ai | CGI Compositor | VFX Artist</p>
-      <div class="buttons">
-        <a href="https://www.imdb.com/name/nm12955860/" target="_blank">IMDb</a>
-        <a href="https://github.com/Evolve9847" target="_blank">GitHub</a>
-        <a href="https://www.linkedin.com/in/fayis-ismail" target="_blank">LinkedIn</a>
-      </div>
+    <div class="container">
+        <img src="{{ url_for('static', filename='profile.jpg') }}" class="profile-img" alt="Profile">
+        <h1>Fayis Ismail</h1>
+        <p>AI Enthusiast | VFX Artist | CGI Compositor</p>
+        <div class="links">
+            <a href="https://github.com/Evolve9847" target="_blank">GitHub</a>
+            <a href="https://m.imdb.com/name/nm12955860/?ref_=ext_shr_lnk" target="_blank">IMDb</a>
+            <a href="https://www.linkedin.com/in/fayis-ismail" target="_blank">LinkedIn</a>
+        </div>
     </div>
-  </div>
+
+    <!-- Chatbot Icon -->
+    <img src="{{ url_for('static', filename='robot.gif') }}" alt="Chatbot Icon" class="chatbot-icon" onclick="toggleChat()">
+
+    <!-- Chat Popup -->
+    <div class="chat-popup" id="chatPopup">
+        <div class="chat-header">
+            <h2>Meta AI</h2>
+        </div>
+        <div class="chat-messages" id="chatMessages"></div>
+        <div class="chat-input">
+            <input type="text" id="userInput" placeholder="Type your message...">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>

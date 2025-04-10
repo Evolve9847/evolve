@@ -21,7 +21,7 @@ function sendMessage() {
     .then(res => res.json())
     .then(data => {
         const botBubble = document.createElement("div");
-        botBubble.textContent = "Meta AI: " + data.reply;
+        botBubble.textContent = "Gemini AI: " + data.reply;
         chatBox.appendChild(botBubble);
         chatBox.scrollTop = chatBox.scrollHeight;
     });

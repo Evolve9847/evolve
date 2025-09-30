@@ -6,8 +6,11 @@ import google.generativeai as genai
 load_dotenv()
 app = Flask(__name__)
 
+# Configure Gemini API
 genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
-model = genai.GenerativeModel("models/gemini-1.5-pro-latest")
+
+# ✅ Updated model from 1.5 Pro → 2.5 Pro
+model = genai.GenerativeModel("gemini-2.5-pro")
 
 @app.route('/')
 def home():
@@ -22,7 +25,7 @@ def chat():
     except Exception as e:
         return jsonify({"reply": f"Error: {str(e)}"})
 
-# ✅ Added route to serve sitemap.xml
+# ✅ Serve sitemap.xml from static folder
 @app.route('/sitemap.xml')
 def sitemap():
     return app.send_static_file('sitemap.xml')

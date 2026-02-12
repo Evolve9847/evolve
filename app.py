@@ -9,8 +9,8 @@ app = Flask(__name__)
 # Configure Gemini API
 genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
 
-# ✅ Updated model from 1.5 Pro → 2.5 Pro
-model = genai.GenerativeModel("gemini-2.5-pro")
+# ✅ Updated to Free Model (2.5 Flash)
+model = genai.GenerativeModel("gemini-2.5-flash")
 
 @app.route('/')
 def home():
